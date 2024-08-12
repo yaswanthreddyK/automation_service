@@ -1,113 +1,164 @@
+import { CardBody, CardContainer, CardItem } from "@/components/global/3dCard";
+import { ContainerScroll } from "@/components/global/ContainerScroll";
+import { HeroParallax } from "@/components/global/HeroParallax";
+import { InfiniteMovingCards } from "@/components/global/InfiniteMovingCards";
+import { LampEffect } from "@/components/global/LampEffect";
+import Navbar from "@/components/global/Navbar";
+import { Button } from "@/components/ui/button";
+import { clients, products } from "@/lib/constants";
+import { CheckIcon } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:size-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+   <main className="flex items-center justify-center flex-col">
+    <Navbar />
+    <section className=" w-full bg-neutral-950 rounded-md !overflow-visible relative flex flex-col items-center">
+      <div className="absoulte inset-0 h-full w-full items-center [background:radial-gradient(125%_125%_at_50%_10%,#000_35%,#223_100%)]">
+        <div className="flex flex-col mt-[-50px]">
+          <ContainerScroll
+          titleComponent={
+            <div className="flex flex-col items-center md:mb-[2em]">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl bg-gradient-to-b from-white to-neutral-600 bg-clip-text text-transparent">
+                Automate Your Work With Fuzzie
+              </h1>
+        <button className="inline-flex h-12 animate-shimmer items-center justify-center rounded-md border border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-slate-400 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 my-3">
+          Start Your Free Trail
+        </button>
+
+          </div>
+          }
           >
-            By{" "}
             <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
+             src={`/temp-banner.png`}
+             alt="hero"
+             height={720}
+             width={1400}
+             className="mx-auto rounded-2xl object-cover h-full object-left-top"
+             draggable={false}
+             priority={true}
             />
-          </a>
+          </ContainerScroll>
         </div>
       </div>
+    </section>
+    <section className="bg-white mt-[-8em]">
+      <InfiniteMovingCards
+      items={clients}
+      direction="right"
+      speed="slow"
+      className="w-screen"
+      />
+    </section>
+    <section className="w-full">
+      <HeroParallax products={products}/>
+    </section>
+    <section className="">
+      <LampEffect />
+      <div className=" flex flex-wrap items-center justify-center flex-col md:flex-row md:gap-10 mt-[-20em] pt-10">
+          <CardContainer className="inter-var h-[385px]">
+            <CardBody className="text-neutral-200 w-[20em] p-6 border rounded-2xl text-sm">
+              <CardItem translateZ={20} as='div' className="font-bold text-xl">
+                Hobby
+              </CardItem>
+              <CardItem translateZ={20} as='div' className="font-bold text-5xl mt-1">
+                $0
+              </CardItem>
+              <CardItem as='p' translateZ={10} className="my-3">
+              Get a glimpse of what our software is capable of. Just a heads
+              up {"you'll"} never leave us after this!
+              </CardItem>
+              <CardItem translateZ={10}>
+              <ul >
+                <li className='flex gap-3 mb-2'>
+                  <CheckIcon /> Free automations
+                </li>
+                <li className='flex gap-3 mb-2'>
+                  <CheckIcon />  Two-step Actions
+                </li>
+                <li className='flex gap-3 mb-2'>
+                  <CheckIcon />  100 tasks per month
+                </li>
+              </ul>
+              </CardItem>
+              <CardItem translateZ={20} className="w-full">
+                <div className="flex items-center justify-between mt-10">
+                  <Link href='/dashboard' target='_blank'>Try now →</Link>
+                  <button className="bg-white text-xs text-black p-2 font-semibold rounded-xl">Get Started Now</button>
+                </div>
+              </CardItem>
 
-      <div className="relative z-[-1] flex place-items-center before:absolute before:h-[300px] before:w-full before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 sm:before:w-[480px] sm:after:w-[240px] before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
+            </CardBody>
+          </CardContainer>
+
+          <CardContainer className="inter-var">
+            <CardBody className="text-neutral-200 w-[20em] p-6 border border-white rounded-2xl text-sm">
+              <CardItem translateZ={20} as='div' className="font-bold text-xl">
+                Pro Plan
+              </CardItem>
+              <CardItem translateZ={20} as='div' className="font-bold text-5xl mt-1">
+                $29
+              </CardItem>
+              <CardItem as='p' translateZ={10} className="my-3">
+              Get a glimpse of what our software is capable of. Just a heads
+              up {"you'll"} never leave us after this!
+              </CardItem>
+              <CardItem translateZ={10}>
+              <ul >
+                <li className='flex gap-3 mb-2'>
+                  <CheckIcon /> Free automations
+                </li>
+                <li className='flex gap-3 mb-2'>
+                  <CheckIcon />  Two-step Actions
+                </li>
+                <li className='flex gap-3 mb-2'>
+                  <CheckIcon />  10,000 tasks per month
+                </li>
+              </ul>
+              </CardItem>
+              <CardItem translateZ={20} className="w-full">
+                <div className="flex items-center justify-between mt-10"><Link href='/dashboard' target='_blank'>Try now →</Link>
+                <button className="bg-white text-xs text-black p-2 font-semibold rounded-xl">Get Started Now</button></div>
+              </CardItem>
+
+            </CardBody>
+          </CardContainer>
+          <CardContainer className="inter-var">
+            <CardBody className="text-neutral-200 w-[20em] p-6 border rounded-2xl text-sm">
+              <CardItem translateZ={20} as='div' className="font-bold text-xl">
+                Unlimited
+              </CardItem>
+              <CardItem translateZ={20} as='div' className="font-bold text-5xl mt-1">
+                $99
+              </CardItem>
+              <CardItem as='p' translateZ={10} className="my-3">
+              Get a glimpse of what our software is capable of. Just a heads
+              up {"you'll"} never leave us after this!
+              </CardItem>
+              <CardItem translateZ={10}>
+              <ul >
+                <li className='flex gap-3 mb-2'>
+                  <CheckIcon /> Unlimited automations
+                </li>
+                <li className='flex gap-3 mb-2'>
+                  <CheckIcon />  Two-step Actions
+                </li>
+                <li className='flex gap-3 mb-2'>
+                  <CheckIcon />  Unlimited tasks
+                </li>
+              </ul>
+              </CardItem>
+              <CardItem translateZ={20} className="w-full">
+                <div className="flex items-center justify-between mt-10"><Link href='/dashboard' target='_blank'>Try now →</Link>
+                <button className="bg-white text-xs text-black p-2 font-semibold rounded-xl">Get Started Now</button></div>
+              </CardItem>
+
+            </CardBody>
+          </CardContainer>
       </div>
-
-      <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-balance text-sm opacity-50">
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+    </section>
+   
+   </main>
   );
 }
