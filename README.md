@@ -10,6 +10,8 @@ Clerk - For authentication (signup with google/ signup with github) <br />
 NeonDB - For postgres database with prisma wrapper <br />
 uploadcare - For file upload <br />
 Ngrok - to expose localhost (to work with webhooks) <br />
+ReactFlow - to create drag/drop canvas, nodes, and connections <br />
+Shadcn , Aceternity UI - For UI components <br />
 
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
